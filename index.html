@@ -5,68 +5,137 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Livro de Colorir Bobbie Goods</title>
   <style>
+    /* Cores personalizadas */
+    :root {
+      --cor-primaria: #6a1b9a; /* Roxo escuro */
+      --cor-secundaria: #ce93d8; /* Lilás claro */
+      --cor-accento: #7b1fa2; /* Roxo vibrante */
+      --cor-fundo: #f5f5f5;
+      --cor-texto: #333333;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
-      background: #f9f9f9;
-      color: #333;
-      text-align: center;
-    }
-    header {
-      background-color: #ff6f00;
-      color: white;
-      padding: 30px 20px;
-    }
-    header h1 {
-      margin: 0 0 10px;
-      font-size: 2em;
-    }
-    header p {
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      font-size: 1.1em;
-      font-weight: 300;
+      background: var(--cor-fundo);
+      color: var(--cor-texto);
     }
-    .container {
-      max-width: 600px;
-      margin: 30px auto;
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+    header {
+      background: var(--cor-primaria);
+      padding: 40px 20px;
+      text-align: center;
+      color: white;
     }
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-    ul {
-      text-align: left;
-      margin: 20px 0;
-      padding-left: 20px;
-      font-size: 1.1em;
-    }
-    ul li {
+
+    header h1 {
+      font-size: 2.5em;
       margin-bottom: 10px;
     }
+
+    header p {
+      font-size: 1.2em;
+      font-weight: 300;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .produto-img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .beneficios {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-top: 30px;
+    }
+
+    .beneficio {
+      width: 200px;
+      margin: 15px;
+      padding: 15px;
+      background-color: var(--cor-secundaria);
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      color: #3e1f47;
+    }
+
+    .beneficio h3 {
+      font-size: 1.1em;
+      margin-top: 10px;
+    }
+
     .btn-comprar {
       display: inline-block;
-      background-color: #ff6f00;
+      background-color: var(--cor-accento);
       color: white;
-      font-size: 1.3em;
+      font-size: 1.4em;
       font-weight: bold;
-      padding: 15px 30px;
-      text-decoration: none;
+      padding: 15px 40px;
+      margin-top: 30px;
+      border: none;
       border-radius: 50px;
-      transition: background-color 0.3s ease;
-      margin-top: 20px;
+      text-decoration: none;
+      transition: background 0.3s ease;
     }
+
     .btn-comprar:hover {
-      background-color: #e65c00;
+      background-color: #4a148c; /* Roxo mais escuro no hover */
     }
+
+    .depoimentos {
+      margin-top: 50px;
+      text-align: left;
+    }
+
+    .depoimentos h2 {
+      text-align: center;
+      color: var(--cor-primaria);
+    }
+
+    .depoimento {
+      background: #f3e5f5;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 15px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      color: #4a148c;
+    }
+
+    /* Seção Sobre Mim */
+    .sobre-mim {
+      margin-top: 50px;
+      background: var(--cor-secundaria);
+      color: #3e1f47;
+      padding: 25px 20px;
+      border-radius: 12px;
+      text-align: center;
+      font-style: italic;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .sobre-mim h2 {
+      margin-bottom: 15px;
+      color: var(--cor-primaria);
+    }
+
     footer {
-      margin: 40px 0 20px;
-      font-size: 0.9em;
-      color: #777;
+      margin-top: 50px;
+      background: #eee;
+      padding: 20px;
+      text-align: center;
+      color: #666;
     }
   </style>
 </head>
@@ -74,35 +143,67 @@
 
 <header>
   <h1>Livro de Colorir Bobbie Goods</h1>
-  <p>50 Páginas de Diversão e Criatividade para Crianças</p>
+  <p>Descubra um mundo de criatividade e diversão para as crianças!</p>
 </header>
 
 <div class="container">
 
-  <img src="foto 1.jpeg" alt="Livro de Colorir Bobbie Goods - Capa" />
+ <img src="foto 1.jpeg" alt="Livro de Colorir Bobbie Goods - Capa" />
   <img src="foto 2.jpeg" alt="Contra Capa" />
   <img src="foto 3.jpeg" alt="Páginas internas do livro" />
 
+  <div class="beneficios">
+    <div class="beneficio">
+      🎨
+      <h3>50 Páginas Únicas</h3>
+      <p>Atividades variadas para soltar a imaginação.</p>
+    </div>
+    <div class="beneficio">
+      📘
+      <h3>Capa Dura</h3>
+      <p>Mais durabilidade e resistência para o uso diário.</p>
+    </div>
+    <div class="beneficio">
+      🎁
+      <h3>Presente Ideal</h3>
+      <p>Perfeito para aniversários e datas especiais.</p>
+    </div>
+    <div class="beneficio">
+      🧠
+      <h3>Estimula o Desenvolvimento</h3>
+      <p>Ajuda na coordenação e criatividade.</p>
+    </div>
+  </div>
 
-  <ul>
-    <li>Produto original Bobbie Goods</li>
-    <li>Capa dura para maior durabilidade</li>
-    <li>Estimula criatividade e coordenação motora</li>
-    <li>Ideal para presentear ou uso escolar</li>
-  </ul>
-
-  <a class="btn-comprar" href="https://produto.mercadolivre.com.br/MLB-4151504679-livro-de-colorir-bobbie-goods?utm_source=google&utm_medium=cpc&utm_campaign=livro-bobbie&utm_content=landingpage" target="_blank" rel="noopener">
+  <a class="btn-comprar" href="https://produto.mercadolivre.com.br/MLB-4151504679-livro-de-colorir-bobbie-goods" target="_blank">
     Comprar Agora no Mercado Livre
   </a>
+
+  <div class="depoimentos">
+    <h2>O que estão dizendo:</h2>
+    <div class="depoimento">
+      <strong>Marina, mãe da Ana:</strong>
+      <p>"Minha filha amou! Todo dia ela escolhe uma página nova para pintar. Recomendo demais!"</p>
+    </div>
+    <div class="depoimento">
+      <strong>Carla, pedagoga:</strong>
+      <p>"O livro é ótimo para trabalhar coordenação e criatividade nas aulas. Super indico!"</p>
+    </div>
+  </div>
+
+  <div class="sobre-mim">
+    <h2>Sobre mim</h2>
+    <p>Oi! Sou a Anna Clara, uma programadora iniciante que adora café, códigos e… testar tudo na prática!<br>
+    Esta landing page é minha primeira criação oficial — feita com muito amor, algumas linhas de código (e vários “debugs”).<br>
+    Se você chegou até aqui, já é parte dessa aventura comigo! 💜🚀</p>
+  </div>
+
 </div>
 
 <footer>
-  Compra segura pelo Mercado Livre • Envio rápido e confiável
+  © 2025 - Desenvolvido com carinho por Anna Clara ❤️ | Site em teste e aprendizado
 </footer>
 
 </body>
 </html>
-<body>
-  <h1>Bobbie Goods</h1>
-  <img src="foto 1.jpeg" alt="Bobbie Goods">
-  <p>
+
