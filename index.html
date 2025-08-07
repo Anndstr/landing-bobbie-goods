@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Livro de Colorir Bobbie Goods</title>
   <style>
-    /* Cores personalizadas */
     :root {
-      --cor-primaria: #6a1b9a; /* Roxo escuro */
-      --cor-secundaria: #ce93d8; /* Lilás claro */
-      --cor-accento: #7b1fa2; /* Roxo vibrante */
+      --cor-primaria: #6a1b9a;
+      --cor-secundaria: #ce93d8;
+      --cor-accento: #7b1fa2;
       --cor-fundo: #f5f5f5;
       --cor-texto: #333333;
     }
@@ -40,35 +39,75 @@
     }
 
     .container {
-      width: 700px;
+      max-width: 700px;
+      width: 90%;
       margin: 40px auto 60px auto;
-      padding: 30px 40px;
+      padding: 30px 20px;
       background: white;
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       text-align: center;
     }
 
-    .produto-img {
-      width: 400px;
+    /* Carrossel */
+    .carousel {
+      position: relative;
+      max-width: 100%;
+      margin: 0 auto 30px auto;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .carousel-images {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-images img {
+      max-width: 100%;
       height: auto;
       border-radius: 12px;
-      margin-bottom: 30px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+      flex-shrink: 0;
+      width: 100%;
+    }
+
+    /* Botões */
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(106, 27, 154, 0.7);
+      border: none;
+      color: white;
+      font-size: 2em;
+      padding: 5px 15px;
+      cursor: pointer;
+      border-radius: 50%;
+      user-select: none;
+      transition: background 0.3s ease;
+    }
+    .carousel-button:hover {
+      background: var(--cor-accento);
+    }
+    .carousel-button.prev {
+      left: 10px;
+    }
+    .carousel-button.next {
+      right: 10px;
     }
 
     .beneficios {
       display: flex;
       justify-content: space-between;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       margin-top: 30px;
       margin-bottom: 40px;
+      gap: 20px;
     }
 
     .beneficio {
-      width: 160px;
+      flex: 1 1 160px;
       background-color: var(--cor-secundaria);
       border-radius: 10px;
       padding: 15px;
@@ -79,6 +118,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      min-width: 140px;
+      max-width: 180px;
     }
 
     .beneficio h3 {
@@ -100,7 +141,7 @@
     }
 
     .btn-comprar:hover {
-      background-color: #4a148c; /* Roxo mais escuro no hover */
+      background-color: #4a148c;
     }
 
     .depoimentos {
@@ -125,7 +166,6 @@
       line-height: 1.4em;
     }
 
-    /* Seção Sobre Mim */
     .sobre-mim {
       margin-top: 50px;
       background: var(--cor-secundaria);
@@ -155,29 +195,6 @@
       color: #666;
       font-size: 0.9em;
     }
-
-    /* Responsividade simples */
-    @media screen and (max-width: 760px) {
-      .container {
-        width: 90%;
-        padding: 20px;
-      }
-      .produto-img {
-        width: 90%;
-      }
-      .beneficios {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .beneficio {
-        width: 45%;
-        margin: 10px;
-      }
-      .sobre-mim {
-        width: 90%;
-        padding: 20px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -189,9 +206,15 @@
 
 <div class="container">
 
-  <img src="foto 1.jpeg" alt="Livro de Colorir Bobbie Goods - Capa" />
-  <img src="foto 2.jpeg" alt="Contra Capa" />
-  <img src="foto 3.jpeg" alt="Exemplo de página colorida" />
+  <div class="carousel">
+    <button class="carousel-button prev" aria-label="Imagem anterior">&#10094;</button>
+    <div class="carousel-images">
+      <img src="foto 1.jpeg" alt="Livro de Colorir Bobbie Goods - capa" />
+      <img src="foto 2.jpeg" alt="Livro Bobbie Goods - página para colorir" />
+      <img src="foto 3.jpeg" alt="Livro Bobbie Goods - diversão" />
+    </div>
+    <button class="carousel-button next" aria-label="Próxima imagem">&#10095;</button>
+  </div>
 
   <div class="beneficios">
     <div class="beneficio">
@@ -244,6 +267,35 @@
 <footer>
   © 2025 - Desenvolvido com carinho por Anna Clara ❤️ | Site em teste e aprendizado
 </footer>
+
+<script>
+  const prevBtn = document.querySelector('.carousel-button.prev');
+  const nextBtn = document.querySelector('.carousel-button.next');
+  const imagesContainer = document.querySelector('.carousel-images');
+  const images = document.querySelectorAll('.carousel-images img');
+
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    const width = images[0].clientWidth;
+    imagesContainer.style.transform = `translateX(${-currentIndex * width}px)`;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateCarousel();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateCarousel();
+  });
+
+  window.addEventListener('resize', updateCarousel);
+
+  // Inicializa a posição
+  updateCarousel();
+</script>
 
 </body>
 </html>
