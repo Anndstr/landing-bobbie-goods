@@ -19,12 +19,12 @@
       margin: 0;
       background: var(--cor-fundo);
       color: var(--cor-texto);
+      text-align: center;
     }
 
     header {
       background: var(--cor-primaria);
       padding: 40px 20px;
-      text-align: center;
       color: white;
     }
 
@@ -36,12 +36,13 @@
     header p {
       font-size: 1.2em;
       font-weight: 300;
+      margin: 0;
     }
 
     .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
+      width: 700px;
+      margin: 40px auto 60px auto;
+      padding: 30px 40px;
       background: white;
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
@@ -49,44 +50,52 @@
     }
 
     .produto-img {
-      max-width: 100%;
+      width: 400px;
+      height: auto;
       border-radius: 12px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .beneficios {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
+      justify-content: space-between;
+      flex-wrap: nowrap;
       margin-top: 30px;
+      margin-bottom: 40px;
     }
 
     .beneficio {
-      width: 200px;
-      margin: 15px;
-      padding: 15px;
+      width: 160px;
       background-color: var(--cor-secundaria);
       border-radius: 10px;
+      padding: 15px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
       color: #3e1f47;
+      font-size: 0.95em;
+      line-height: 1.3em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .beneficio h3 {
+      margin: 10px 0 0 0;
       font-size: 1.1em;
-      margin-top: 10px;
     }
 
     .btn-comprar {
-      display: inline-block;
       background-color: var(--cor-accento);
       color: white;
       font-size: 1.4em;
       font-weight: bold;
-      padding: 15px 40px;
-      margin-top: 30px;
+      padding: 15px 50px;
       border: none;
       border-radius: 50px;
       text-decoration: none;
+      display: inline-block;
       transition: background 0.3s ease;
     }
 
@@ -102,6 +111,7 @@
     .depoimentos h2 {
       text-align: center;
       color: var(--cor-primaria);
+      margin-bottom: 20px;
     }
 
     .depoimento {
@@ -111,6 +121,8 @@
       margin: 15px 0;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
       color: #4a148c;
+      font-size: 0.95em;
+      line-height: 1.4em;
     }
 
     /* Seção Sobre Mim */
@@ -120,9 +132,14 @@
       color: #3e1f47;
       padding: 25px 20px;
       border-radius: 12px;
-      text-align: center;
       font-style: italic;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      font-size: 1em;
+      line-height: 1.5em;
     }
 
     .sobre-mim h2 {
@@ -136,6 +153,30 @@
       padding: 20px;
       text-align: center;
       color: #666;
+      font-size: 0.9em;
+    }
+
+    /* Responsividade simples */
+    @media screen and (max-width: 760px) {
+      .container {
+        width: 90%;
+        padding: 20px;
+      }
+      .produto-img {
+        width: 90%;
+      }
+      .beneficios {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .beneficio {
+        width: 45%;
+        margin: 10px;
+      }
+      .sobre-mim {
+        width: 90%;
+        padding: 20px;
+      }
     }
   </style>
 </head>
@@ -148,9 +189,9 @@
 
 <div class="container">
 
- <img src="foto 1.jpeg" alt="Livro de Colorir Bobbie Goods - Capa" />
+  <img src="foto 1.jpeg" alt="Livro de Colorir Bobbie Goods - Capa" />
   <img src="foto 2.jpeg" alt="Contra Capa" />
-  <img src="foto 3.jpeg" alt="Páginas internas do livro" />
+  <img src="foto 3.jpeg" alt="Exemplo de página colorida" />
 
   <div class="beneficios">
     <div class="beneficio">
@@ -175,7 +216,7 @@
     </div>
   </div>
 
-  <a class="btn-comprar" href="https://produto.mercadolivre.com.br/MLB-4151504679-livro-de-colorir-bobbie-goods" target="_blank">
+  <a class="btn-comprar" href="https://produto.mercadolivre.com.br/MLB-4151504679-livro-de-colorir-bobbie-goods" target="_blank" rel="noopener">
     Comprar Agora no Mercado Livre
   </a>
 
@@ -206,4 +247,3 @@
 
 </body>
 </html>
-
